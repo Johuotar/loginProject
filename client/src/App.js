@@ -13,7 +13,7 @@ function App() {
         <Link to={'/register'}>Register</Link>
       </div>
       <Routes>
-        <Route exact path={'/register'} element={<Register />}>
+        <Route exact path={'/register'} element={<Register />} component={Register}>
         </Route>
       </Routes>
       <hr />
