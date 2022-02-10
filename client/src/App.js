@@ -30,7 +30,7 @@ function App() {
       <BrowserRouter>
         <div>
           {!!email && (
-            <div>Logged in as {email}
+            <div>Logged in as: {email}
               <button onClick={() => logout()}>Log out</button>
             </div>
           )}
@@ -43,10 +43,16 @@ function App() {
           <Link to={'/login'}>Login</Link> |
           <Link to={'/register'}>Register</Link>
         </div>
-        <Routes>
-          <Route exact path={'/register'} element={<Register />} component={Register}></Route>
-          <Route exact path={'/login'} element={<Login />} component={Login}></Route>
-        </Routes>
+        <hr />
+        {!!email && (
+          <div>Greetings, {email}, here are your files: Lorem ipsum dolor sit amet</div>
+        )}
+        {!email && (
+          <Routes>
+            <Route exact path={'/register'} element={<Register />} component={Register}></Route>
+            <Route exact path={'/login'} element={<Login />} component={Login}></Route>
+          </Routes>
+        )}
         <hr />
       
       </BrowserRouter>
