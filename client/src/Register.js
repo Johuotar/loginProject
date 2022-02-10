@@ -9,7 +9,6 @@ function Register() {
     function registerUser(e) {
         e.preventDefault(); //Dont use default http request
 
-        //TODO fix error
         const data = {email,password};
 
         axios.post('http://localhost:4000/register', data, {withCredentials:true})

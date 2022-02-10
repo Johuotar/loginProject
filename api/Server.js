@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
     credentials:true,
-    origin:'http:/localhost:3000',
+    origin:'http://localhost:3000',
 }));
 
 app.get('/', (req, res) => {
