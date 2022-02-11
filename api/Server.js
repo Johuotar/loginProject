@@ -22,7 +22,7 @@ app.use(cors({
 }));
 
 app.get('/', (req, res) => {
-    res.send('ok');
+    res.send('loginProject server is running ok');
 });
 
 app.get('/user', (req, res) => {
