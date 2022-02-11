@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
     credentials:true,
-    origin:'http://localhost:3000',
+    origin:['http://localhost:3000', 'https://aurawaveclient.fly.dev'],
 }));
 
 app.get('/', (req, res) => {
