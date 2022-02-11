@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken';
 
 const secret = "secret123";
 
-await mongoose.connect('mongodb://localhost:27017/auth', {useNewUrlParser:true, useUnifiedTopology:true});
+await mongoose.connect('mongodb://Localhost:27017/auth', {useNewUrlParser:true, useUnifiedTopology:true});
 const db = mongoose.connection;
 db.on('error', console.log);
 
@@ -18,7 +18,9 @@ app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
     credentials:true,
-    origin:['http://localhost:3000', 'https://aurawaveclient.fly.dev'],
+    origin:'http://localhost:3000',
+    //origin:'http://localhost:3000/register',
+    //origin:['http://localhost:3000', 'https://aurawaveclient.fly.dev', 'http://localhost:3000/register','http://localhost:4000'],
 }));
 
 app.get('/', (req, res) => {
@@ -39,13 +41,13 @@ app.get('/user', (req, res) => {
             res.json({id:userInfo._id,email:userInfo.email});
         })
 });
-
+//TODO: If user inputs email that is not in format a@b.com the server app crashes
 app.post('/register', (req, res) => {
     const {email, password} = req.body;
     const hashedPassword = bcrypt.hashSync(password, 10);
     const user = new User({password:hashedPassword,email});
     user.save().then(userInfo => {
-        console.log(userInfo); //Log Id, email and password
+        //console.log(userInfo); //Log Id, email and password
         //Send token and response inside a cookie with jsonwebtoken library
         jwt.sign({id:userInfo._id, email:userInfo.email}, secret, (err,token) => {
             if (err) { //If there is error, log it

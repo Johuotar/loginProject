@@ -14,6 +14,11 @@
 /client/build
 /api/build
 
+#dist
+dist/
+/client/dist/
+/api/dist/
+
 # misc
 .DS_Store
 .env.local
