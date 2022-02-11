@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken';
 
 const secret = "secret123";
 
-await mongoose.connect('mongodb://Localhost:27017/auth', {useNewUrlParser:true, useUnifiedTopology:true});
+await mongoose.connect('mongodb://localhost:27017/auth', {useNewUrlParser:true, useUnifiedTopology:true});
 const db = mongoose.connection;
 db.on('error', console.log);
 
