@@ -44,15 +44,11 @@ function App() {
           <Link to={'/register'}>Register</Link>
         </div>
         <hr />
-        {!!email && (
-          <div>Greetings, {email}, here are your files: Lorem ipsum dolor sit amet</div>
-        )}
-        {!email && (
+        {/*Find a way to hide forms without potentially causing memory leak caused by dismount before async call finished*/}
           <Routes>
             <Route exact path={'/register'} element={<Register />} component={Register}></Route>
             <Route exact path={'/login'} element={<Login />} component={Login}></Route>
           </Routes>
-        )}
         <hr />
       
       </BrowserRouter>
